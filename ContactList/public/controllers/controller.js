@@ -20,5 +20,31 @@ myApp.controller('AppCtrl', ['$scope', '$http', function($scope, $http) {
     		console.log(response);
     		refresh();
     	});
+    };
+
+    $scope.removeContact = function(id){
+    	console.log(id);
+    	$http.delete('/contactList/' + id).success(function(response){
+    		refresh();
+    	});
+    };
+
+    $scope.editContact = function(id){
+    	console.log(id);
+    	$http.get('/contactList/' + id).success(function(response){
+    		$scope.contact = response;
+    	});
+    };
+
+    $scope.updContact = function(){
+    	console.log($scope.contact._id);
+    	$http.put('contactList/'+ $scope.contact._id, $scope.contact).success(function(response){
+    		refresh();
+    	});
+    };
+
+    $scope.deselect = function(){
+    	$scope.contact = "";
     }
+
 }]);

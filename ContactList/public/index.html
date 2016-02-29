@@ -20,20 +20,24 @@
 				<th>Email</th>
 				<th>Contact</th>
 				<th>Action</th>
+				<th>&nbsp;</th>
 			</tr>
 		</thead>
 		<tbody>
 			<tr>
-				<td><input class="form-control" ng-model="contact.name"></td>
-				<td><input class="form-control" ng-model="contact.email"></td>
-				<td><input class="form-control" ng-model="contact.number"></td>
-				<td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></input>
+				<td><input class="form-control" ng-model="contact.name"></input></td>
+				<td><input class="form-control" ng-model="contact.email"></input></td>
+				<td><input class="form-control" ng-model="contact.number"></input></td>
+				<td><button class="btn btn-primary" ng-click="addContact()">Add Contact</button></td>
+				<td><button class="btn btn-info" ng-click="updContact()">Update</button>&nbsp;&nbsp;
+					<button class="btn btn-info" ng-click="deselect()">Clear</button></td>
 			</tr>
 			<tr ng-repeat = 'contact in contactList'>
 			<td>{{contact.name}}</td>
 			<td>{{contact.email}}</td>
 			<td>{{contact.number}}</td>
 			<td><button class="btn btn-danger" ng-click="removeContact(contact._id)">Remove</button></td>
+			<td><button class="btn btn-warning" ng-click="editContact(contact._id)">Edit</button></td>
 			</tr>
 		</tbody>
 		
